@@ -1,0 +1,18 @@
+<mat-card class="offset-md-3 mt-1 col-md-6">
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <mat-select
+        [ngModel]="selectedCity"
+        [ngModelOptions]="{standalone: true}"
+        (selectionChange)="onValueChange($event)"
+      >
+        <mat-option value="bangalore">Bangalore</mat-option>
+        <mat-option value="chennai">Chennai</mat-option>
+        <mat-option value="delhi">Delhi</mat-option>
+        <mat-option value="hyderabad">Hyderabad</mat-option>
+        <mat-option value="mumbai">Mumbai</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

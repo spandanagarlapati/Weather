@@ -1,0 +1,8 @@
+.example-container {
+  width: 100%;
+  background-color: white;
+}
+
+.mat-drawer-content {
+  overflow: hidden !important;
+}
