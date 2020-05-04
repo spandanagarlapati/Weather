@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { ChartServiceService } from 'src/services/chart-service.service';
+import HC_exporting from 'highcharts/modules/exporting';
+
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -10,6 +12,8 @@ let More = require('highcharts/highcharts-more');
 Boost(Highcharts);
 noData(Highcharts);
 More(Highcharts);
+HC_exporting(Highcharts);
+
 @Component({
   selector: 'app-column-chart',
   templateUrl: './column-chart.component.html',
@@ -37,6 +41,13 @@ export class ColumnChartComponent implements OnInit {
     },
     credits: {
       enabled: false
+    },
+    exporting: {
+      buttons: {
+        contextButton: {
+          menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG', 'separator', 'downloadXLS', 'downloadCSV'],
+        }
+      }
     },
     tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',

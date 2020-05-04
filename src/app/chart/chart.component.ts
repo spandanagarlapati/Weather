@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, Input } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import HC_exporting from 'highcharts/modules/exporting';
+
 import { ChartServiceService } from 'src/services/chart-service.service';
 import { ColumnChartComponent } from './column-chart/column-chart.component';
 
@@ -11,6 +13,7 @@ let More = require('highcharts/highcharts-more');
 Boost(Highcharts);
 noData(Highcharts);
 More(Highcharts);
+HC_exporting(Highcharts);
 @Component({
     selector: 'app-chart',
     templateUrl: './chart.component.html',
@@ -33,6 +36,13 @@ export class ChartComponent implements OnInit {
         },
         credits: {
             enabled: false
+        },
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG', 'separator', 'downloadXLS', 'downloadCSV'],
+                }
+            }
         },
         yAxis: {
             title: {
